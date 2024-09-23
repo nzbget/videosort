@@ -619,7 +619,7 @@ def get_titles(name, titleing=False):
     '''
 
     #make valid filename
-    title = re.sub('[\"\:\?\*\\\/\<\>\|]', ' ', name)
+    title = re.sub('[\":\?\*\\\/\<\>\|]', ' ', name)
 
     if titleing:
         title = titler(title) # title the show name so it is in a consistant letter case
