@@ -619,7 +619,7 @@ def get_titles(name, titleing=False):
     '''
 
     #make valid filename
-    title = re.sub('[\":\?\*\\\/\<\>\|]', ' ', name)
+    title = re.sub(r'[\":\?\*\\\/\<\>\|]', ' ', name)
 
     if titleing:
         title = titler(title) # title the show name so it is in a consistant letter case
@@ -1022,9 +1022,9 @@ def deobfuscate_path(filename):
 
 def remove_year(title):
     """ Removes year from series name (if exist) """
-    m = re.compile('..*(\((19|20)\d\d\))').search(title)
+    m = re.compile(r'..*(\((19|20)\d\d\))').search(title)
     if not m:
-        m = re.compile('..*((19|20)\d\d)').search(title)
+        m = re.compile(r'..*((19|20)\d\d)').search(title)
     if m:
         if verbose:
             print('Removing year from series name')
